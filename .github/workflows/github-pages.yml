@@ -47,7 +47,7 @@ jobs:
           tag: "v2.3.2"
           fileName: "attack-navigator-v2.zip"
           extract: true
-          out-file-path: "./dist/"
+          out-file-path: "./nav-app/dist/"
 
       - name: Download and extract v3
         uses: robinraju/release-downloader@v1.9
@@ -56,7 +56,7 @@ jobs:
           tag: "v3.1"
           fileName: "attack-navigator-v3.zip"
           extract: true
-          out-file-path: "./dist/"
+          out-file-path: "./nav-app/dist/"
 
       - name: Download and extract Enterprise and Mobile redirects
         uses: robinraju/release-downloader@v1.9
@@ -65,7 +65,7 @@ jobs:
           tag: "v4.0"
           fileName: "attack-navigator-*.zip"
           extract: true
-          out-file-path: "./dist/"
+          out-file-path: "./nav-app/dist/"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
