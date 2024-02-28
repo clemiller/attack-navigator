@@ -68,7 +68,7 @@ jobs:
           out-file-path: "./archive/"
 
       - name: Copy archive to build
-        run: ls ./
+        run: cp -r ../archive/ ./dist/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
