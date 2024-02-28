@@ -1,0 +1,50 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy-to-gh-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    defaults:
+      run:
+        working-directory: ./nav-app/
+    strategy:
+      matrix:
+        node-version: [16.x]
+    env:
+      GOOGLE_ANALYTICS: ${{secrets.GOOGLE_ANALYTICS}}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: nav-app/package-lock.json
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build Navigator
+        run: npm run build -- --configuration production --aot=false --build-optimizer=false --base-href=https://clemiller.github.io/attack-navigator/
+
+      - name: Add Google Analytics
+        run: |
+          sed -i "s#<head>#<head><script async src='https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}'></script><script>window.dataLayer = window.dataLayer || \[\]; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GOOGLE_ANALYTICS}');</script></head>#" ./dist/index.html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/master' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./nav-app/dist
+          commit_message: ${{ github.event.head_commit.message }}
+          keep_files: true
