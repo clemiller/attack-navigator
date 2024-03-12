@@ -1,10 +1,11 @@
-import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
+import { Component, ViewChild, HostListener, OnInit, Inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TabsComponent } from './tabs/tabs.component';
 import { ConfigService } from './services/config.service';
 import * as globals from './utils/globals';
 import { IconsService } from './services/icons.service';
 import { deleteCookie, getCookie, hasCookie, setCookie } from './utils/cookies';
+import { environment } from '../environments/environment.prod';
 
 @Component({
     selector: 'app-root',
@@ -49,6 +50,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.iconsService.registerIcons();
         this.titleService.setTitle(this.title);
+		if (environment.production) this.addGoogleAnalytics();
     }
 
     themeChangeHandler(theme: string) {
@@ -60,4 +62,20 @@ export class AppComponent implements OnInit {
             setCookie('is_user_theme_dark', theme === 'dark' ? 'true' : 'false', 180);
         }
     }
+
+	private addGoogleAnalytics(): void {
+		const gaTag = document.createElement('script');
+		gaTag.setAttribute('async', 'true');
+		gaTag.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${ environment.googleAnalytics }`);
+
+		const gaScript = document.createElement('script');
+		gaScript.innerText = `\
+		window.dataLayer = window.dataLayer || [];\
+		function gtag(){dataLayer.push(arguments);}\
+		gtag('js', new Date());\
+		gtag('config', '${ environment.googleAnalytics }');`;
+	
+		document.documentElement.firstChild.appendChild(gaTag);
+		document.documentElement.firstChild.appendChild(gaScript);
+	}
 }
