@@ -50,7 +50,6 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.iconsService.registerIcons();
         this.titleService.setTitle(this.title);
-		if (environment.production) this.addGoogleAnalytics();
     }
 
     themeChangeHandler(theme: string) {
@@ -62,20 +61,4 @@ export class AppComponent implements OnInit {
             setCookie('is_user_theme_dark', theme === 'dark' ? 'true' : 'false', 180);
         }
     }
-
-	private addGoogleAnalytics(): void {
-		const gaTag = document.createElement('script');
-		gaTag.setAttribute('async', 'true');
-		gaTag.setAttribute('src', `https://www.googletagmanager.com/gtag/js?id=${ environment.googleAnalytics }`);
-
-		const gaScript = document.createElement('script');
-		gaScript.innerText = `\
-		window.dataLayer = window.dataLayer || [];\
-		function gtag(){dataLayer.push(arguments);}\
-		gtag('js', new Date());\
-		gtag('config', '${ environment.googleAnalytics }');`;
-	
-		document.documentElement.firstChild.appendChild(gaTag);
-		document.documentElement.firstChild.appendChild(gaScript);
-	}
 }
