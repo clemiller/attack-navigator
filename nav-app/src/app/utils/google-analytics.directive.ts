@@ -1,5 +1,5 @@
 import { Directive, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 declare const gtag: Function;
 
@@ -8,7 +8,7 @@ declare const gtag: Function;
 })
 export class GoogleAnalyticsDirective implements OnInit {
 	ngOnInit(): void {
-		if (environment.production) this.addGoogleAnalytics(); // TODO this will always be true
+		if (environment.production) this.addGoogleAnalytics();
 	}
 
 	private addGoogleAnalytics(): void {
