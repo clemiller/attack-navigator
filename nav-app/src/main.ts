@@ -6,6 +6,7 @@ import { environment } from './environments/environment';
 
 if (environment.production) {
     enableProdMode();
+	document.write(`<script async src="https://www.googletagmanager.com/gtag/js?id=${environment.googleAnalytics}"></script>`);
 }
 
 platformBrowserDynamic()
