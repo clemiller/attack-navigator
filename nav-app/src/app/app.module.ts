@@ -51,6 +51,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ListInputComponent } from './list-input/list-input.component';
 import { ConfigService } from './services/config.service';
 import { GoogleAnalyticsDirective } from './utils/google-analytics.directive';
+import { GoogleAnalyticsComponent } from './google-analytics/google-analytics.component';
 
 @NgModule({
     declarations: [
@@ -75,6 +76,7 @@ import { GoogleAnalyticsDirective } from './utils/google-analytics.directive';
         ChangelogComponent,
         ListInputComponent,
         GoogleAnalyticsDirective,
+        GoogleAnalyticsComponent,
     ],
     imports: [
         BrowserModule,
