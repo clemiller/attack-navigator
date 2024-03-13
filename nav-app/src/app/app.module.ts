@@ -50,7 +50,6 @@ import { ChangelogComponent } from './changelog/changelog.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ListInputComponent } from './list-input/list-input.component';
 import { ConfigService } from './services/config.service';
-import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 @NgModule({
     declarations: [
@@ -115,7 +114,6 @@ import { GoogleAnalyticsService } from './services/google-analytics.service';
             deps: [ConfigService],
             multi: true,
         },
-		GoogleAnalyticsService
     ],
     bootstrap: [AppComponent],
 })

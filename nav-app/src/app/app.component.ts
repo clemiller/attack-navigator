@@ -5,8 +5,6 @@ import { ConfigService } from './services/config.service';
 import * as globals from './utils/globals';
 import { IconsService } from './services/icons.service';
 import { deleteCookie, getCookie, hasCookie, setCookie } from './utils/cookies';
-import { environment } from '../environments/environment';
-import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 @Component({
     selector: 'app-root',
@@ -32,7 +30,6 @@ export class AppComponent implements OnInit {
         public configService: ConfigService,
         private iconsService: IconsService,
         public titleService: Title,
-		public googleAnalyticsService: GoogleAnalyticsService
     ) {
         Array.prototype.includes = function (value): boolean {
             for (let i = 0; i < this.length; i++) {
