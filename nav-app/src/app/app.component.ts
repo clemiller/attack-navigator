@@ -48,9 +48,9 @@ export class AppComponent implements OnInit {
             this.user_theme = 'theme-use-system';
         }
 
-		if (environment.production && environment.googleAnalytics) {
-			googleAnalyticsService.addGoogleAnalytics();
-		}
+		// if (environment.production && environment.googleAnalytics) {
+		// 	googleAnalyticsService.addGoogleAnalytics();
+		// }
     }
 
     ngOnInit() {
