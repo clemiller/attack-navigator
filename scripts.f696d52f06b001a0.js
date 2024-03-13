@@ -1,0 +1,1 @@
+const fs=require("fs"),target="./src/environments/environment.prod.ts",config=`export const environment = {\n\tproduction: true,\n\tGOOGLE_ANALYTICS: '${process.env.GOOGLE_ANALYTICS}'\n};`;fs.writeFile(target,config,function(n){n&&console.log(n)});
