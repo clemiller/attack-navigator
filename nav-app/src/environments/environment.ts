@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-	googleAnalytics: undefined,
+	GOOGLE_ANALYTICS: undefined,
 };

@@ -50,8 +50,6 @@ import { ChangelogComponent } from './changelog/changelog.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ListInputComponent } from './list-input/list-input.component';
 import { ConfigService } from './services/config.service';
-import { GoogleAnalyticsDirective } from './utils/google-analytics.directive';
-import { GoogleAnalyticsComponent } from './google-analytics/google-analytics.component';
 import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 @NgModule({
@@ -76,8 +74,6 @@ import { GoogleAnalyticsService } from './services/google-analytics.service';
         LayerInformationComponent,
         ChangelogComponent,
         ListInputComponent,
-        GoogleAnalyticsDirective,
-        GoogleAnalyticsComponent,
     ],
     imports: [
         BrowserModule,

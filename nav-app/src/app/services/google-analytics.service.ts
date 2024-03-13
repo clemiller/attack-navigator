@@ -16,7 +16,7 @@ export class GoogleAnalyticsService {
 
   public addGoogleAnalytics(): void {
 	const gaTagManager = document.createElement('script');
-	gaTagManager.src = `https://www.googletagmanager.com/gtag/js?id=${environment.googleAnalytics}`;
+	gaTagManager.src = `https://www.googletagmanager.com/gtag/js?id=${environment.GOOGLE_ANALYTICS}`;
 	gaTagManager.async = true;
 	// document.head.appendChild(gaTagManager);
 
@@ -31,7 +31,7 @@ export class GoogleAnalyticsService {
 	gaScript.innerText = `window.dataLayer = window.dataLayer || [];\
 	function gtag(){dataLayer.push(arguments);}\
 	gtag('js', new Date());\
-	gtag('config', '${ environment.googleAnalytics }');`;
+	gtag('config', '${ environment.GOOGLE_ANALYTICS }');`;
 
 	// document.head.appendChild(gaScript);
 
