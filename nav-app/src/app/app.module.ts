@@ -52,6 +52,7 @@ import { ListInputComponent } from './list-input/list-input.component';
 import { ConfigService } from './services/config.service';
 import { GoogleAnalyticsDirective } from './utils/google-analytics.directive';
 import { GoogleAnalyticsComponent } from './google-analytics/google-analytics.component';
+import { GoogleAnalyticsService } from './services/google-analytics.service';
 
 @NgModule({
     declarations: [
@@ -118,6 +119,7 @@ import { GoogleAnalyticsComponent } from './google-analytics/google-analytics.co
             deps: [ConfigService],
             multi: true,
         },
+		GoogleAnalyticsService
     ],
     bootstrap: [AppComponent],
 })
