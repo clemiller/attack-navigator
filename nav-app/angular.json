@@ -43,10 +43,6 @@
                     },
                     "configurations": {
                         "production": {
-							"index": {
-								"input": "src/index.prod.html",
-								"output": "index.html"
-							},
                             "budgets": [
                                 {
                                     "type": "anyComponentStyle",
@@ -66,7 +62,13 @@
                                     "with": "src/environments/environment.prod.ts"
                                 }
                             ]
-                        }
+                        },
+						"googleAnalytics": {
+							"index": {
+								"input": "src/index.google-analytics.html",
+								"output": "index.html"
+							}
+						}
                     },
                     "defaultConfiguration": ""
                 },
