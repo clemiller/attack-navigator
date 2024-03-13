@@ -28,7 +28,10 @@ export class GoogleAnalyticsService {
 	// gaScript.appendChild(gaScript);
 	// document.body.appendChild(gaScript);
 	const gaScript = document.createElement('script');
-	gaScript.innerText = `window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', '${ environment.googleAnalytics }');`;
+	gaScript.innerText = `window.dataLayer = window.dataLayer || [];\
+	function gtag(){dataLayer.push(arguments);}\
+	gtag('js', new Date());\
+	gtag('config', '${ environment.googleAnalytics }');`;
 
 	// document.head.appendChild(gaScript);
 
