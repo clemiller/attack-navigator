@@ -226,7 +226,7 @@
     "link_color": "blue",
     "metadata_color": "purple",
 
-    "banner": "",
+    "banner": "Test Banner",
 
     "features": [
         {"name": "leave_site_dialog", "enabled": true, "description": "Disable to remove the dialog prompt when leaving site."},
