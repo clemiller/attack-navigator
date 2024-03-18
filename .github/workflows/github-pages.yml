@@ -43,7 +43,7 @@ jobs:
           tag: "v2.3.2"
           fileName: "attack-navigator-v2.zip"
           extract: true
-          out-file-path: "./archive/"
+          out-file-path: "nav-app/dist/v2/"
 
       - name: Download and extract Navigator v3
         uses: robinraju/release-downloader@v1.9
@@ -52,13 +52,13 @@ jobs:
           tag: "v3.1"
           fileName: "attack-navigator-v3.zip"
           extract: true
-          out-file-path: "./archive/"
+          out-file-path: "nav-app/dist/v3/"
 
-      - name: Copy archive to build
-        run: cp -r ../archive/ ./dist/
+      # - name: Copy archive to build
+      #   run: cp -r ../archive/ ./dist/
 
       - name: Copy redirects
-        run: cp ./redirects/* ./dist/
+        run: cp -r ./redirects/* ./dist/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
