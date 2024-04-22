@@ -17,8 +17,6 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-    env:
-      GOOGLE_ANALYTICS: ${{secrets.GOOGLE_ANALYTICS}}
 
     steps:
       - uses: actions/checkout@v4
