@@ -14,7 +14,6 @@ jobs:
     - uses: actions/checkout@v4
     - uses: ncipollo/release-action@v1
       with:
-        generateReleaseNotes: true
         makeLatest: true
         name: "attack-navigator ${{github.ref_name}}"
         body: "See [the changelog](./CHANGELOG.md) for details about what changed in this release."
